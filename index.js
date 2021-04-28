@@ -26,7 +26,7 @@ function reduceToAllTrue(sourceArray){
           return false;
         }
     });
-    
+
 }
 function reduceToAnyTrue(sourceArray){
 
