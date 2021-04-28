@@ -1,53 +1,43 @@
-function mapToNegativize(src) {
-  let r = []
-  for (let i = 0; i < src.length; i++ ) {
-    r.push(-1 * src[i])
-  }
-  return r
+function mapToNegativize(sourceArray){
+    return sourceArray.map(x => x * -1);
 }
 
-function mapToNoChange(src) {
-  let r = []
-  for (let i = 0; i < src.length; i++ ) {
-    r.push(src[i])
-  }
-  return r
+function mapToNoChange(sourceArray){
+    return sourceArray.map(x => x);
 }
 
-function mapToDouble(src) {
-  let r = []
-  for (let i = 0; i < src.length; i++ ) {
-    r.push(2 * src[i])
-  }
-  return r
+function mapToDouble(sourceArray){
+    return sourceArray.map(x => x*2);
 }
 
-function mapToSquare(src) {
-  let r = []
-  for (let i = 0; i < src.length; i++ ) {
-    r.push(src[i] * src[i])
-  }
-  return r
+function mapToSquare(sourceArray){
+    return sourceArray.map(x => x*x);
 }
 
-function reduceToTotal(src, startingPoint=0) {
-  let total = startingPoint
-  for (let i = 0; i < src.length; i++ ) {
-    total = total + src[i]
-  }
-  return total
-}
+function reduceToTotal(sourceArray, startingPoint = 0){
+    const reducer = function(accumulator, currentValue){ return accumulator + currentValue }
 
-function reduceToAllTrue(src) {
-  for (let i = 0; i < src.length; i++ ) {
-    if (!src[i]) return false
-  }
-  return true
+    return sourceArray.reduce(reducer, startingPoint)
 }
+function reduceToAllTrue(sourceArray){
 
-function reduceToAnyTrue(src) {
-  for (let i = 0; i < src.length; i++ ) {
-    if (src[i]) return true
-  }
-  return false
+    const reducer = function(accumulator, currentValue){
+        if(Boolean(accumulator)===true && Boolean(currentValue)===true)
+          return true;
+        else {
+          return false;
+        }
+    }
+    return sourceArray.reduce(reducer);
+}
+function reduceToAnyTrue(sourceArray){
+
+    const reducer = function(accumulator, currentValue){
+        if(Boolean(accumulator)===true || Boolean(currentValue)===true)
+          return true;
+        else {
+          return false;
+        }
+    }
+    return sourceArray.reduce(reducer);
 }
