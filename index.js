@@ -29,12 +29,12 @@ function reduceToAllTrue(sourceArray){
 }
 function reduceToAnyTrue(sourceArray){
 
-    const reducer = function(accumulator, currentValue){
+    return sourceArray.reduce(function(accumulator, currentValue){
         if(Boolean(accumulator)===true || Boolean(currentValue)===true)
           return true;
         else {
           return false;
         }
-    }
-    return sourceArray.reduce(reducer);
+    });
+
 }
