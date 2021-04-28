@@ -18,23 +18,20 @@ function reduceToTotal(sourceArray, startingPoint = 0){
     return sourceArray.reduce(function(accumulator, currentValue){ return accumulator + currentValue },startingPoint);
 }
 function reduceToAllTrue(sourceArray){
-
-    return sourceArray.reduce(function(accumulator, currentValue){
-        if(Boolean(currentValue)===true)
-          return true;
-        else {
-          return false;
-        }
-    });
+  return sourceArray.reduce(function(accumulator, currentValue){
+      if(Boolean(currentValue)===true)
+        return true;
+      else {
+        return false;
+      }
+  });
 }
 function reduceToAnyTrue(sourceArray){
-
-    return sourceArray.reduce(function(accumulator, currentValue){
-        if(Boolean(accumulator)===true || Boolean(currentValue)===true)
-          return true;
-        else {
-          return false;
-        }
-    });
-
+  return sourceArray.reduce(function(accumulator, currentValue){
+      if(Boolean(accumulator)===true || Boolean(currentValue)===true)
+        return true;
+      else {
+        return false;
+      }
+  });
 }
