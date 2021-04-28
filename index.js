@@ -20,7 +20,7 @@ function reduceToTotal(sourceArray, startingPoint = 0){
 function reduceToAllTrue(sourceArray){
 
     return sourceArray.reduce(function(accumulator, currentValue){
-        if(Boolean(accumulator)===true && Boolean(currentValue)===true)
+        if(Boolean(currentValue)===true)
           return true;
         else {
           return false;
